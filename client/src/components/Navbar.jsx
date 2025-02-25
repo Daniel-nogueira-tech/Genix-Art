@@ -1,15 +1,11 @@
-import React, { useContext, useState } from "react";
-import { assets } from "../assets/assets";
+import React, { useContext } from "react";
+import { assets, plans } from "../assets/assets";
 import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
-    const { user, setUser, setShowLogin } = useContext(AppContext)
+    const { user, setUser, setShowLogin, logout, credit } = useContext(AppContext)
     const navigate = useNavigate();
-
-    const handleLogout = () => {
-        setUser(null); // Simulação de logout
-    };
 
     return (
         <div className="flex items-center justify-between py-4 gap-5">
@@ -23,7 +19,7 @@ const Navbar = () => {
                         <button onClick={() => navigate("/buy")} className="flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full 
                             hover:scale-105 transition-all duration-700">
                             <img className="w-5" src={assets.credit_star} alt="Créditos" />
-                            <p className="text-xs sm:text-sm font-medium text-gray-600">Créditos: {user.credits}</p>
+                            <p className="text-xs sm:text-sm font-medium text-gray-600">Créditos: {credit}</p>
                         </button>
                         <p className="text-gray-600 max-sm;hidden pl-4">Oi, {user.name}</p>
 
@@ -34,7 +30,7 @@ const Navbar = () => {
                                 <ul className="list-none m-0 p-2 bg-white rounded-md border text-sm text-center">
                                     <li
                                         className="cursor-pointer hover:bg-gray-200 p-2"
-                                        onClick={handleLogout}
+                                        onClick={logout}
                                     >
                                         Logout
                                     </li>
@@ -48,7 +44,7 @@ const Navbar = () => {
                             Preços
                         </p>
                         <button
-                            onClick={()=>setShowLogin(true)}
+                            onClick={() => setShowLogin(true)}
                             className="bg-zinc-800 text-white px-7 py-2 sm:py-2 text-sm rounded-full"
                         >
                             Login

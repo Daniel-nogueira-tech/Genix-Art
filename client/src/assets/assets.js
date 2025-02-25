@@ -21,6 +21,7 @@ import lock_icon from './lock_icon.svg'
 import email from './email.svg'
 import person from './person.svg'
 import close from './close.svg'
+import image_gerar from './image_gerar.png'
 
 export const assets = {
     logo,
@@ -40,6 +41,7 @@ export const assets = {
     email,
     person,
     close,
+    image_gerar,
     
 }
 
@@ -86,12 +88,6 @@ export const testimonialsData = [
 ]
 
 export const plans = [
-    {
-        id: 'Gratuito',
-        price: '0',
-        credits: '10',
-        desc: 'Melhor para iniciantes.'
-    },
     {
         id: 'Básico',
         price: '10',
